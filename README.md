@@ -59,4 +59,3 @@ Build a **Streamlit app** `app.py`:
 - Test the full workflow:  
   `Data preprocessing → model prediction → frontend output`  
 - Ensure predictions are accurate and the system runs smoothly
->>>>>>> eb90000ec70c87267db98c65547681950890d1f4
