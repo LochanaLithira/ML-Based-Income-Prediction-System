@@ -11,7 +11,7 @@ The system can automatically predict income levels, helping organizations make f
 
 <br>
 
-## 🛠 Technologies Used – Income Prediction System
+# 🛠 Technologies Used – Income Prediction System
 
 - **💻 Programming Language:** Python
 - **📊 Data Handling:** pandas, numpy
@@ -26,7 +26,7 @@ The system can automatically predict income levels, helping organizations make f
 <br>
 
 # 💻 Software Implementation – Main Tasks
-1️⃣
+
 ## 1️⃣ Data Preprocessing
 - Clean and transform raw data
 - Handle missing values, duplicates, and incorrect data types
