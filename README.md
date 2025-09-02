@@ -8,3 +8,16 @@ We built a Machine Learning system that predicts a person’s income category (<
 
 ## 🎯 Outcome
 The system can automatically predict income levels, helping organizations make fast and accurate financial decisions. Users can also try the prediction through a simple interactive frontend built with **Streamlit**.
+
+## 🛠 Technologies Used – Income Prediction System
+
+- **💻 Programming Language:** Python
+- **📊 Data Handling:** pandas, numpy
+- **📈 Data Visualization:** matplotlib, seaborn
+- **🤖 Machine Learning & Modeling:** scikit-learn
+  - Logistic Regression
+  - Decision Tree
+  - Random Forest
+  - (Optional) Gradient Boosting / XGBoost
+- **💾 Model Saving:** joblib or pickle
+- **🖥 Frontend / Interactive Demo:** Streamlit
