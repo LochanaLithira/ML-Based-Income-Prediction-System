@@ -22,3 +22,40 @@ The system can automatically predict income levels, helping organizations make f
   - Random Forest
 - **💾 Model Saving:** joblib or pickle
 - **🖥 Frontend / Interactive Demo:** Streamlit
+
+<br>
+
+# 💻 Software Implementation – Main Tasks
+1️⃣
+## 1️⃣ Data Preprocessing
+- Clean and transform raw data
+- Handle missing values, duplicates, and incorrect data types
+- Encode categorical variables
+- Normalize/scale numerical features
+
+## 2️⃣ Exploratory Data Analysis (EDA) 🔍
+- **Visualize feature distributions**: histograms, boxplots  
+- **Analyze relationships** between features and income  
+- **Identify patterns** to improve model performance  
+
+## 3️⃣ Model Training 🏋️‍♂️
+- Train machine learning models (e.g., Logistic Regression, Random Forest, XGBoost)  
+- Tune hyperparameters for optimal performance  
+- Save the trained model for later use  
+
+## 4️⃣ Backend Prediction Script 📝
+Create a script `predict.py` that:  
+- Loads the saved model  
+- Accepts user inputs (age, education, occupation, hours per week, etc.)  
+- Outputs predicted income category (`<=50K` or `>50K`)  
+
+## 5️⃣ Frontend (Interactive Demo) 🌐
+Build a **Streamlit app** `app.py`:  
+- Input fields for user attributes  
+- Button to predict income  
+- Display predicted income category in real-time  
+
+## 7️⃣ Testing ✅
+- Test the full workflow:  
+  `Data preprocessing → model prediction → frontend output`  
+- Ensure predictions are accurate and the system runs smoothly
