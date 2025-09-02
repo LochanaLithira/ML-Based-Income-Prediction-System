@@ -1,0 +1,1 @@
+# Script to take input & predict income
