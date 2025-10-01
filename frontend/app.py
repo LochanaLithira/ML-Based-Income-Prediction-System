@@ -386,7 +386,7 @@ if submit_button:
     if earns_more_than_50k:
         st.markdown(f'''
         <div class="result-income high">
-            ✅ Earns More Than 50,000 LKR
+            ✅ Earns More Than $50,000
         </div>
         ''', unsafe_allow_html=True)
         prediction_class = "High Income Earner"
@@ -396,7 +396,7 @@ if submit_button:
     else:
         st.markdown(f'''
         <div class="result-income low">
-            ❌ Does Not Earn More Than 50,000 LKR
+            ❌ Does Not Earn More Than $50,000
         </div>
         ''', unsafe_allow_html=True)
         prediction_class = "Standard Income Earner"
@@ -407,8 +407,8 @@ if submit_button:
     # Confidence section
     st.markdown(f'''
     <div class="confidence-section">
-        <div class="confidence-percentage">{probability*100:.1f}%</div>
-        <div class="confidence-label">Model Confidence Level</div>
+        <div class="confidence-percentage">{(probability*100 if earns_more_than_50k else (1-probability)*100):.1f}%</div>
+        <div class="confidence-label">Confidence of earning {">$50K" if earns_more_than_50k else "≤$50K"}</div>
     </div>
     ''', unsafe_allow_html=True)
     
