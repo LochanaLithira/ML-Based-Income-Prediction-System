@@ -2,7 +2,7 @@
 import pandas as pd
 import joblib
 
-pipeline_path = "../models/best_income_model_pipeline.pkl"
+pipeline_path = "models/best_income_model_pipeline.pkl"
 pipeline = joblib.load(pipeline_path)
 
 def predict_income(user_input: dict):
@@ -26,16 +26,16 @@ def predict_income(user_input: dict):
     return ("<=50K" if pred_class == 0 else ">50K"), pred_prob
 
 example_input = {
-    "age": 35,
-    "capital-gain": 15000,
+    "age": 55,
+    "capital-gain": 10000,
     "capital-loss": 0,
     "hours-per-week": 40,
     "workclass": "Private",
-    "education": "Bachelors",
-    "marital-status": "Married-civ-spouse",
-    "occupation": "Exec-managerial",
-    "relationship": "Husband",
-    "gender": "Male",
+    "education": "Undergraduate",
+    "marital-status": "Married",
+    "occupation": "White collar",
+    "relationship": "Independent",
+    "gender": "Female",
 }
 
 prediction, probability = predict_income(example_input)

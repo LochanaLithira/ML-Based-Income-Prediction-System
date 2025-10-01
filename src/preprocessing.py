@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # Load the Dataset
-data = pd.read_csv("../data/income.csv")
+data = pd.read_csv("data/income.csv")
 print("Initial shape:", data.shape)
 
 selected_features = ["age","workclass","education","marital-status","occupation","relationship","gender","hours-per-week","capital-gain","capital-loss","income"]
@@ -34,28 +34,30 @@ data["income"] = data["income"].apply(lambda x: 1 if x == ">50K" else 0)
 print("Missing values after handling:\n", data.isnull().sum())
 
 # Handle Outliers in Numeric Features
-# Define numeric columns that need outlier treatment
-numeric_cols = ["age","capital-gain", "capital-loss", "hours-per-week"]
+numeric_cols_iqr = ["age", "hours-per-week"]   # Apply IQR here
+skewed_cols = ["capital-gain", "capital-loss"] # Transform instead of remove
 
-# Define function to remove outliers using IQR method
+# Function: remove outliers with IQR
 def remove_outliers_iqr(df, col):
-    # Calculate first and third quartiles
     Q1 = df[col].quantile(0.25)
     Q3 = df[col].quantile(0.75)
-    # Calculate interquartile range
     IQR = Q3 - Q1
-    # Define bounds for outlier detection
     lower = Q1 - 1.5 * IQR
     upper = Q3 + 1.5 * IQR
-    # Return only rows within the acceptable range
     return df[(df[col] >= lower) & (df[col] <= upper)]
 
-# Apply outlier removal to each numeric column
-for col in numeric_cols:
+# Apply IQR only on selected numeric cols
+for col in numeric_cols_iqr:
     before = data.shape[0]
     data = remove_outliers_iqr(data, col)
     after = data.shape[0]
     print(f"{col}: removed {before - after} outliers")
+
+# Apply log transformation to skewed features
+import numpy as np
+for col in skewed_cols:
+    data[col] = np.log1p(data[col])   # log(1 + x) keeps 0 as 0
+    print(f"{col}: applied log transformation")
 
 import pandas as pd
 
@@ -172,5 +174,9 @@ print("\nFinal dataset shape:", data.shape)
 print(data.head())
 
 # Save Preprocessed Dataset
-data.to_csv("../data/income_cleaned.csv", index=False)
-print("\n✅ Cleaned dataset saved as '../data/income_cleaned.csv'")
+import os
+output_dir = "data"
+os.makedirs(output_dir, exist_ok=True)
+output_path = os.path.join(output_dir, "income_cleaned.csv")
+data.to_csv(output_path, index=False)
+print(f"\n✅ Cleaned dataset saved as '{output_path}'")
