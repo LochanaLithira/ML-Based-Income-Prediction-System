@@ -386,7 +386,7 @@ if submit_button:
     if earns_more_than_50k:
         st.markdown(f'''
         <div class="result-income high">
-            ✅ Earns More Than $50K
+            ✅ Earns More Than 50,000 LKR
         </div>
         ''', unsafe_allow_html=True)
         prediction_class = "High Income Earner"
@@ -396,12 +396,12 @@ if submit_button:
     else:
         st.markdown(f'''
         <div class="result-income low">
-            ❌ Does Not Earn More Than $50K
+            ❌ Does Not Earn More Than 50,000 LKR
         </div>
         ''', unsafe_allow_html=True)
         prediction_class = "Standard Income Earner"
         prediction_icon = "💵"
-        result_color = "#e91b1b"
+        result_color = "#d40a03"
         income_status = "NO - Predicted to earn $50,000 or less annually"
     
     # Confidence section

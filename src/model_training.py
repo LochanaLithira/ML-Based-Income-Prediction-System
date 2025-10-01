@@ -12,7 +12,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 import joblib
 
 # Load the Preprocessed Dataset
-data = pd.read_csv("../data/income_cleaned.csv")
+data = pd.read_csv("data/income_cleaned.csv")
 print("Dataset shape:", data.shape)
 
 # Separate Features and Target Variable
@@ -67,7 +67,7 @@ for name, pipeline in pipelines.items():
 best_model_name = max(accuracies, key=accuracies.get)
 best_pipeline = pipelines[best_model_name]
 
-model_path = "../models/best_income_model_pipeline.pkl"
+model_path = "models/best_income_model_pipeline.pkl"
 joblib.dump(best_pipeline, model_path)
 
 print(f"\n✅ Best model pipeline ({best_model_name}) saved as '{model_path}'")
